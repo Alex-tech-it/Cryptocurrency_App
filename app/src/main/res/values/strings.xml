@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Криптовалюты</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="cryptocurrency_header">Криптовалюты</string>
+    <string name="cryptocurrency_usd">USD</string>
+    <string name="cryptocurrency_max_day">Max:</string>
+    <string name="cryptocurrency_max_day_description">Максимальное значение за день:</string>
+    <string name="cryptocurrency_min_day">Min:</string>
+    <string name="cryptocurrency_min_day_description">Минимальное значение за день:</string>
+    <string name="cryptocurrency_market_cap">Рыночная капитализация</string>
+    <string name="cryptocurrency_price_changed">Изменение цены за день:</string>
+    <string name="cryptocurrency_price_changed_percentage">Изменение цены (%) за день:</string>
+    <string name="percentage">%</string>
+    <string name="request_limit_error">Загрузка данных невозможна. Превышен лимит сервера API</string>
+</resources>

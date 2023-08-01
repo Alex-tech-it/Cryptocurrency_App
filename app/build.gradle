@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id "dagger.hilt.android.plugin"
+}
+
+android {
+    namespace 'com.example.myapplication'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "com.example.myapplication.di.HiltTestRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            merges += "META-INF/LICENSE.md"
+            merges += "META-INF/LICENSE-notice.md"
+        }
+    }
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+    sourceSets {
+        test {
+            resources {
+                srcDirs = [ 'src/test/resources' ]
+            }
+        }
+    }
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
+dependencies {
+    implementation platform(kotlinBomPlatform.platform)
+    implementation platform(composePlatform.platform)
+    implementation core.values()
+    implementation retrofit.values()
+    implementation composeDeps.values()
+    implementation hiltExt.values()
+    implementation serializationJson.values()
+    implementation lifecycleCompose.values()
+    implementation paging.values()
+    implementation androidTest.runner
+    implementation testJupiter.values()
+
+    testImplementation testImpl.values()
+
+    androidTestImplementation androidTest.values()
+    implementation platform(composePlatform.platform)
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    kapt "com.google.dagger:hilt-android-compiler:2.47"
+
+    implementation "io.coil-kt:coil-compose:2.4.0"
+    implementation "me.onebone:toolbar-compose:2.3.5"
+    implementation "androidx.navigation:navigation-compose:2.6.0"
+
+    implementation(project(":core"))
+}

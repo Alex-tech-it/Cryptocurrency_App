@@ -1,0 +1,112 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    dependencies {
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.47")
+    }
+}
+plugins {
+    id 'com.android.application' version '8.0.2' apply false
+    id 'com.android.library' version '8.0.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.0' apply false
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.0'
+}
+
+ext.versions = [
+        corekKtxV: "1.10.1",
+        coroutinesV: "1.6.4",
+        retrofitV: "2.9.0",
+        retrofitGsonV: "2.5.0",
+        daggerVersion: "2.44",
+        kotlinBomV: "1.8.0",
+        lifecycleRuntimeV: "2.6.1",
+        activityComposeV: "1.7.2",
+        composeBomV: "2022.10.00",
+        junitV: "4.13.2",
+        testJunitV: "1.1.5",
+        espressoV: "3.5.1",
+        hiltV: "2.47",
+        lifecycleComposeV: "2.6.1",
+        pagingV: "3.1.1"
+]
+
+ext.composePlatform = [
+        platform: "androidx.compose:compose-bom:$versions.composeBomV"
+]
+
+ext.kotlinBomPlatform = [
+        platform: "org.jetbrains.kotlin:kotlin-bom:$versions.kotlinBomV"
+]
+
+ext.composeDeps = [
+        ui: 'androidx.compose.ui:ui',
+        uiGraphics: 'androidx.compose.ui:ui-graphics',
+        uiPreview: 'androidx.compose.ui:ui-tooling-preview',
+        material: 'androidx.compose.material3:material3'
+]
+
+ext.core = [
+        coreKtx: "androidx.core:core-ktx:$versions.corekKtxV",
+        lifecycleRuntime: "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycleRuntimeV",
+        activityCompose: "androidx.activity:activity-compose:$versions.activityComposeV",
+        coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesV"
+]
+
+ext.hiltExt = [
+        hilt: "com.google.dagger:hilt-android:$versions.hiltV",
+        hiltNavigatiomCompose: "androidx.hilt:hilt-navigation-compose:1.0.0"
+]
+
+ext.hiltCompiler = [
+        hiltCompiler: "com.google.dagger:hilt-android-compiler:$versions.hiltV",
+]
+
+ext.retrofit = [
+        retrofit: "com.squareup.retrofit2:retrofit:$versions.retrofitV",
+        converterGson: "com.squareup.retrofit2:converter-gson:$versions.retrofitGsonV"
+]
+
+ext.paging = [
+        pagingRuntime: "androidx.paging:paging-runtime:$versions.pagingV",
+        pagingcompose: "androidx.paging:paging-compose:3.2.0-rc01"
+]
+
+ext.serializationJson = [
+        json: "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"
+]
+
+ext.lifecycleCompose = [
+        lifecycleVMCompose: "androidx.lifecycle:lifecycle-viewmodel-compose:$versions.lifecycleComposeV",
+        lifecycleVMKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleComposeV",
+        lifecycleRuntimeCompose: "androidx.lifecycle:lifecycle-runtime-compose:$versions.lifecycleComposeV"
+]
+
+ext.daggerDependenciesDagger = [
+        "dagger": "com.google.dagger:dagger:$versions.daggerVersion"
+]
+
+ext.daggerDependenciesCompiler = [
+        "daggerCompiler": "com.google.dagger:dagger-compiler:$versions.daggerVersion"
+]
+
+ext.picasso = [
+        picasso: 'com.squareup.picasso:picasso:2.71828'
+]
+
+ext.testImpl = [
+        junit: "junit:junit:$versions.junitV",
+        coroutinesTest: 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2',
+        mockito: 'org.mockito.kotlin:mockito-kotlin:3.2.0'
+]
+
+ext.testJupiter = [
+        jupiter: "org.junit.jupiter:junit-jupiter:5.8.2"
+]
+
+ext.androidTest = [
+        testJunit: "androidx.test.ext:junit:$versions.testJunitV",
+        escpresso: "androidx.test.espresso:espresso-core:$versions.espressoV",
+        rule: 'androidx.test:rules:1.5.0',
+        runner: 'androidx.test:runner:1.5.2',
+        core: 'androidx.test:core:1.5.0'
+]
+
